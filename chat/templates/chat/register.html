@@ -18,9 +18,9 @@
       <input type="text" class="form-control" name="username" required>
     </div>
     <div class="mb-3">
-  <label for="name" class="form-label">Name *</label>
-  <input type="text" class="form-control" name="name" required>
-</div>
+      <label for="name" class="form-label">Name *</label>
+      <input type="text" class="form-control" name="name" required>
+    </div>
 
     <div class="mb-3">
       <label for="password" class="form-label">Password *</label>
@@ -42,7 +42,7 @@
       <input type="file" class="form-control" name="image">
     </div>
 
-    <button type="submit" class="btn btn-yellow w-100">Register</button>
+    <button type="submit" class="btn btn-primary w-100">Register</button>
   </form>
 </div>
 
@@ -51,17 +51,30 @@
     max-width: 500px;
     margin: 5rem auto;
     padding: 2rem;
-    background-color: white;
+    background: linear-gradient(135deg, #ffffff, #f0f4f8);
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
   }
-  .btn-yellow {
-    background-color: #ffcc00;
+  .form-label {
+    margin-bottom: 5px;
+  }
+  .form-control {
+    border: 2px solid #4a90e2;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+  }
+  .form-control:focus {
+    border-color: #357abd;
+    box-shadow: none;
+  }
+  .btn-primary {
+    background-color: #4a90e2;
     color: white;
     font-weight: 600;
+    padding: 10px 20px;
   }
-  .btn-yellow:hover {
-    background-color: #e6b800;
+  .btn-primary:hover {
+    background-color: #357abd;
   }
 </style>
 {% endblock %}

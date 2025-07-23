@@ -4,25 +4,25 @@
 
 {% block content %}
 <div class="container mt-5" style="max-width: 700px;">
-  <h2 class="mb-4 text-center" style="color: #cc9900;">Your Chat Rooms</h2>
+  <h2 class="mb-4 text-center" style="color: #4a90e2; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">Your Chat Rooms</h2>
 
   <!-- 🔍 Search Form with Button -->
   <form method="GET" action="{% url 'search_users' %}" class="mb-4 d-flex">
-    <input type="text" name="q" class="form-control me-2 border-warning" placeholder="Search chat rooms by name or username..." value="{{ request.GET.q }}">
-    <button type="submit" class="btn btn-warning text-white">Search</button>
+    <input type="text" name="q" class="form-control me-2 border-primary" style="border-radius: 10px; box-shadow: 0 2px 5px rgba(74, 144, 226, 0.2);" placeholder="Search chat rooms by name or username..." value="{{ request.GET.q }}">
+    <button type="submit" class="btn btn-primary text-white">Search</button>
   </form>
 
   {% if chatrooms %}
-    <ul class="list-group shadow-sm rounded">
+    <ul class="list-group shadow-sm rounded mb-5">
       {% for room in chatrooms %}
-        <a href="{% url 'chatroom' room.id %}" class="list-group-item list-group-item-action d-flex align-items-center" style="background: #fff9e6;">
+        <a href="{% url 'chatroom' room.id %}" class="list-group-item list-group-item-action d-flex align-items-center">
           {% if room.other_user.userinfo.image %}
             <img src="{{ room.other_user.userinfo.image.url }}" alt="{{ room.other_user.username }}" class="rounded-circle me-3" width="50" height="50">
           {% else %}
             <img src="{% static 'default-profile.png' %}" class="rounded-circle me-3" width="50" height="50">
           {% endif %}
           <div>
-            <div style="color: #cc9900; font-weight: 600;">{{ room.other_user.userinfo.name }}</div>
+            <div style="color: #4a90e2; font-weight: 600;">{{ room.other_user.userinfo.name }}</div>
             <small class="text-muted">@{{ room.other_user.username }}</small>
           </div>
         </a>
@@ -35,8 +35,15 @@
 
 <style>
   a.list-group-item:hover {
-    background-color: #ffe680;
+    background-color: #e0e8f0;
     transition: background-color 0.2s ease;
+  }
+  a.list-group-item {
+    background: linear-gradient(90deg, #f0f4f8, #e6f0fa);
+  }
+  a.list-group-item img:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
   }
 </style>
 {% endblock %}
